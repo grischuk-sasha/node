@@ -4,6 +4,6 @@ WORKDIR /var/www
 
 EXPOSE 8080
 
-CMD [ "npm", "start" ]
+#CMD [ "npm", "start" ]
 
-ENTRYPOINT ["/usr/local/bin/npm", "run"]
+#ENTRYPOINT ["/usr/local/bin/npm", "run"]
