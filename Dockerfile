@@ -72,6 +72,7 @@ RUN apt-get install -y nano
 RUN gem install sass -v 3.4
 
 RUN npm install -g grunt-cli
+RUN npm install -g gulp-cli
 RUN npm install -g bower
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
 RUN npm install -g webpack@2.2
