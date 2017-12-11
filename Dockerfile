@@ -1,24 +1,31 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y ruby ruby-bundler ruby-compass && \
-    apt-get install -y git nano && \
+RUN apt-get update
+
+# install base tools
+RUN apt-get install -y git nano curl
+
+# install ruby
+RUN apt-get install -y ruby ruby-bundler ruby-compass && \
     echo 'gem: --no-document' > /etc/gemrc
 
-RUN apt-get install -y nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node
+# install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_9.x -o nodesource_setup.sh \
+    && chmod +x nodesource_setup.sh && bash nodesource_setup.sh \
+    && apt-get install -y nodejs build-essential
 
+# install sass
 RUN gem install sass -v 3.4
 RUN gem install --pre sass-css-importer
 
+# install npm tools
 RUN npm install -g grunt-cli
 RUN npm install -g gulp-cli
-RUN npm install -g bower
-RUN npm install -g node-sass
-RUN npm install -g node-gyp
-RUN npm rebuild node-sass
-RUN echo '{ "allow_root": true }' > /root/.bowerrc
-RUN npm install -g webpack@1
-RUN npm install -g yarn
+RUN npm install -g webpack
 
-RUN rm -rf /var/lib/apt/lists/*
+# install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install yarn
 
 WORKDIR /var/www
