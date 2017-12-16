@@ -10,7 +10,7 @@ RUN apt-get install -y ruby ruby-bundler ruby-compass && \
     echo 'gem: --no-document' > /etc/gemrc
 
 # install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_9.x -o nodesource_setup.sh \
+RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh \
     && chmod +x nodesource_setup.sh && bash nodesource_setup.sh \
     && apt-get install -y nodejs build-essential
 
