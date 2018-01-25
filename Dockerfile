@@ -22,6 +22,7 @@ RUN gem install --pre sass-css-importer
 RUN npm install -g grunt-cli
 RUN npm install -g gulp-cli
 RUN npm install -g webpack
+RUN npm install -g nodemon
 
 # install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
