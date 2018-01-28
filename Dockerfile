@@ -23,6 +23,7 @@ RUN npm install -g grunt-cli
 RUN npm install -g gulp-cli
 RUN npm install -g webpack
 RUN npm install -g nodemon
+RUN npm install -g bower
 
 # install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
