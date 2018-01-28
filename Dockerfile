@@ -15,7 +15,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh \
     && apt-get install -y nodejs build-essential
 
 # install sass
-RUN gem install sass -v 3.4
+RUN gem install sass
 RUN gem install --pre sass-css-importer
 
 # install npm tools
