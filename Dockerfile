@@ -1,9 +1,9 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update
 
 # install base tools
-RUN apt-get install -y git nano curl
+RUN apt-get install -y git nano curl gnupg
 
 # install ruby
 RUN apt-get install -y ruby ruby-bundler ruby-compass && \
