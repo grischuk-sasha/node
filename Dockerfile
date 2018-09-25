@@ -3,7 +3,8 @@ FROM ubuntu:18.04
 RUN apt-get update
 
 # install base tools
-RUN apt-get install -y git nano curl gnupg openssh-client
+RUN apt-get install -y git nano curl gnupg
+RUN apt-get install -y openssh-client
 
 # install ruby
 RUN apt-get install -y ruby ruby-bundler ruby-compass && \
